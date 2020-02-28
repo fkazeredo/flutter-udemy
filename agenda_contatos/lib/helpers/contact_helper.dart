@@ -39,7 +39,7 @@ class ContactHelper {
 
   Future<Contact> saveContact(Contact contact) async {
     Database dbContact = await db;
-    contact.id = await dbContact.insert(contactTable, contact.toMap(contact));
+    contact.id = await dbContact.insert(contactTable, contact.toMap());
     return contact;
   }
 
@@ -63,7 +63,7 @@ class ContactHelper {
 
   Future<int> updateContact(Contact contact) async {
     Database dbContact = await db;
-    return await dbContact.update(contactTable, contact.toMap(contact),
+    return await dbContact.update(contactTable, contact.toMap(),
         where: "$idColumn = ?", whereArgs: [contact.id]);
   }
 
@@ -107,7 +107,7 @@ class Contact {
     img = map[imgColumn];
   }
 
-  Map toMap(Contact contact) {
+  Map toMap() {
     Map<String, dynamic> map = {
       nameColumn: name,
       emailColumn: email,
