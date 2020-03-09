@@ -13,13 +13,13 @@ class ProductScreen extends StatefulWidget {
 
 class _ProductScreenState extends State<ProductScreen> {
   final ProductData product;
+  String size;
 
   _ProductScreenState(this.product);
 
   @override
   Widget build(BuildContext context) {
     final Color _primaryColor = Theme.of(context).primaryColor;
-    String size;
 
     return Scaffold(
         appBar: AppBar(
@@ -81,6 +81,7 @@ class _ProductScreenState extends State<ProductScreen> {
                           onTap: () {
                             setState(() {
                               size = s;
+                              print(size);
                             });
                           },
                           child: Container(
